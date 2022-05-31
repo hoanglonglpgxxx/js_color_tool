@@ -26,8 +26,8 @@ toggleBtn.addEventListener('click', () => {
     } else {
         lightenText.classList.remove('unselected');
         darkenText.classList.add('unselected');
-
     }
+    reset();
 });
 
 //đổi color  của inputcolor
@@ -44,6 +44,7 @@ hexInput.addEventListener('keyup', () => {
         // console.log('false');
         noti[0].innerText = 'Nhập đúng giá trị hex';
     }
+    reset();
 });
 
 //convert hex thành rgb
@@ -123,9 +124,15 @@ slider.addEventListener('input', () => {
     alteredColorText.innerText = `Altered Color: ${alteredHex}`;
 });
 
+//reset
+const reset = () => {
+    slider.value = 0;
+    sliderText.innerText = `0%`;
+    alteredColor.style.backgroundColor = hexInput.value;
+    alteredColorText.innerText = `Altered Color: ${hexInput.value}`;
 
 
-
+};
 
 // console.log(convertHexToRGB('ffe'));
 // console.log(convertRGBToHex(0, 230, 0));
